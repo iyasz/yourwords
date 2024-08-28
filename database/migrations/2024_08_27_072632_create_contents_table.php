@@ -15,7 +15,7 @@ return new class extends Migration
             $table->uuid('id')->unique();
             $table->uuid('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->string('name')->nullable();
+            $table->string('title')->nullable();
             $table->text('description')->nullable();
 
             $table->timestamps();

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('content_id')->references('id')->on('contents');
 
             $table->string('text')->nullable();
-            $table->string('translete_text')->nullable();
+            $table->string('answer_text')->nullable();
             $table->string('short_description')->nullable();
 
 

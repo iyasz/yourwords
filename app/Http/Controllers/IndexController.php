@@ -9,4 +9,8 @@ class IndexController extends Controller
     function index() {
         return view('home');
     }
+
+    function dashboard() {
+        return view('main.dashboard');
+    }
 }
