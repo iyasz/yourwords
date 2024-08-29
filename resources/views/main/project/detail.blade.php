@@ -35,17 +35,41 @@
             </template>
         </div>
         <div class="mt-6">
-            <div class="grid lg:max-w-none md:max-w-2xl max-w-xl lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-5 ">
-               @foreach ($project->DetailContent as $item)
-                <div class="bg-zinc-800 rounded-md">
-                    <div class="p-3">
-                        <h1 class="text-white font-semibold text-sm break-words ">{{$item->text}}</h1>
-                        <p class="text-zinc-100 text-xs break-words">{{$item->answer_text}}</p>
-                    </div>
-                </div>
-                @endforeach
+            @if ($project->DetailContent->count() > 0)
+                <div class="grid lg:max-w-none md:max-w-2xl max-w-xl lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-5 ">
+                    @foreach ($project->DetailContent as $item)
+                    <div class="bg-zinc-800 rounded-md">
+                        <div class="p-3 h-full flex flex-col">
+                            <h1 class="text-white font-semibold text-sm break-words ">{{$item->text}}</h1>
+                            <hr class="my-3 opacity-25">
+                            <p class="text-zinc-100 text-xs break-words">{{$item->answer_text}}</p>
 
-            </div>
+                            <div class="text-end mt-auto">
+                                <form action="/project/list/{{$item->id}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="inline-block bg-primary text-white p-1 rounded-sm text-xs">
+                                        <svg width="15" height="15" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M4.01444 12.4585C3.77445 10.3786 3.65445 9.33861 4.25097 8.6693C4.84749 8 5.89435 8 7.98808 8H17.0119C19.1056 8 20.1525 8 20.749 8.6693C21.3455 9.33861 21.2255 10.3786 20.9856 12.4585L20.4086 17.4585C20.2142 19.1436 20.117 19.9861 19.5482 20.4931C18.9794 21 18.1313 21 16.435 21H8.565C6.86873 21 6.02059 21 5.4518 20.4931C4.88302 19.9861 4.7858 19.1436 4.59136 17.4585L4.01444 12.4585Z" stroke="white" stroke-width="2"/>
+                                            <path d="M6.5 9V7C6.5 5.11438 6.5 4.17157 7.08579 3.58579C7.67157 3 8.61438 3 10.5 3H14.5C16.3856 3 17.3284 3 17.9142 3.58579C18.5 4.17157 18.5 5.11438 18.5 7V9" stroke="white" stroke-width="2"/>
+                                            <path d="M9.5 17V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                            <path d="M21.5 8H3.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                            <path d="M15.5 17V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    @endforeach
+                    
+                </div>
+            @else 
+                <div class="mt-5 text-center">
+                    <h1 class="text-white font-bold lg:text-2xl md:text-[30px] text-[20px] tracking-wide">Belom bikin nihh ...</h1>
+                </div>
+            @endif
 
         </div>
     </div>

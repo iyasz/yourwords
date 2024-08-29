@@ -57,6 +57,13 @@ class ProjectController extends Controller
             'answer_text.max' => 'Teks Answer terlalu panjang!',
 
         ]);
+
+        $project = Content::findOrFail($id);
+
+        if($project->user_id != Auth::user()->id){
+            abort(404);
+        }
+
         $detailContent = new DetailContent();
         $detailContent->content_id = $id;
         $detailContent->text = $request->text;
@@ -64,5 +71,19 @@ class ProjectController extends Controller
         $detailContent->save();
 
         return redirect(request()->path());
+    }
+
+    public function handleDeleteList($id) {
+        $detail = DetailContent::findOrFail($id);
+        $idContent = $detail->content->id;
+
+        if($detail->content->user_id != Auth::user()->id){
+            abort(404);
+        }
+
+        $detail->delete();
+
+        return redirect('/project/list/'.$idContent);
+
     }
 }

@@ -13,4 +13,8 @@ class DetailContent extends Model
     protected $table = 'detail_contents';
 
 
+    public function content()
+    {
+        return $this->belongsTo(Content::class, 'content_id', 'id');
+    }
 }
