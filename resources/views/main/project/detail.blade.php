@@ -27,26 +27,24 @@
     </div>
 
     <div class="projects-wrapper mt-20 mx-4">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between" x-data="{ openList: false }">
             <h1 class="text-white font-bold lg:text-2xl md:text-[30px] text-[20px] tracking-wide">List Kata</h1>
-            <a href="" class="text-white font-light lg:text-xl md:text-[24px] text-[14px] tracking-wide">Tambah +</a>
+            <button x-on:click="openList = !openList" class="text-white font-light lg:text-xl md:text-[24px] text-[14px] tracking-wide">Tambah +</button>
+            <template x-if="openList">
+                <x-create-detail/>
+            </template>
         </div>
         <div class="mt-6">
             <div class="grid lg:max-w-none md:max-w-2xl max-w-xl lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-5 ">
-               
+               @foreach ($project->DetailContent as $item)
                 <div class="bg-zinc-800 rounded-md">
                     <div class="p-3">
-                        <h1 class="text-white font-semibold text-sm break-words ">keren</h1>
-                        <p class="text-zinc-100 text-xs break-words">keren</p>
+                        <h1 class="text-white font-semibold text-sm break-words ">{{$item->text}}</h1>
+                        <p class="text-zinc-100 text-xs break-words">{{$item->answer_text}}</p>
                     </div>
                 </div>
+                @endforeach
 
-                <div class="bg-zinc-800 rounded-md">
-                    <div class="p-3">
-                        <h1 class="text-white">keren</h1>
-                    </div>
-                </div>
-                
             </div>
 
         </div>

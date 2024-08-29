@@ -22,4 +22,5 @@ Route::get('/dashboard', [IndexController::class, 'dashboard']);
 Route::get('/project/new', [ProjectController::class, 'index']);
 Route::post('/project/new', [ProjectController::class, 'store']);
 Route::get('/project/list/{id}', [ProjectController::class, 'detail']);
+Route::post('/project/list/{id}', [ProjectController::class, 'handleAddList']);
 
