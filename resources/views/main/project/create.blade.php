@@ -19,11 +19,14 @@
                                 @csrf
                                 <div class="mb-5">
                                     <label for="title" class="text-slate-200 text-sm">Judul</label>
-                                    <input type="text" name="title" id="title" required class="w-full p-3 mt-2 text-slate-200 rounded-md foucs:outline-none focus-visible:outline-none bg-zinc-800 border-[1px] border-zinc-600" placeholder="Example">
+                                    <input type="text" maxlength="100" name="title" id="title" required class="w-full p-3 mt-2 text-slate-200 rounded-md foucs:outline-none focus-visible:outline-none bg-zinc-800 border-[1px] border-zinc-600" placeholder="Example">
                                 </div>
                                 <div class="mb-5">
                                     <label for="description" class="text-slate-200 text-sm">Deskripsi</label>
                                     <textarea name="description" required id="description" class="w-full p-3 mt-2 text-slate-200 rounded-md foucs:outline-none focus-visible:outline-none bg-zinc-800 border-[1px] border-zinc-600" placeholder="Something here .." cols="30" rows="6"></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button class="text-white bg-dark-primary w-full rounded-lg py-3 text-sm">Submit</button>
                                 </div>
                             </form>
 

@@ -1,6 +1,7 @@
 
 :root {
     --bs-primary-color: #eb4532;
+    --bs-dark-primary-color: #d6200c;
 }
 
 body {
@@ -14,4 +15,8 @@ body {
 
 .bg-primary {
     background-color: var(--bs-primary-color) !important;
+}
+
+.bg-dark-primary {
+    background-color: var(--bs-dark-primary-color) !important;
 }

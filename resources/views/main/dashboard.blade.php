@@ -19,30 +19,27 @@
         <h1 class="text-white font-bold lg:text-2xl md:text-[30px] text-[20px] tracking-wide">Recent Projects</h1>
         <div class="mt-6">
             <div class="grid lg:max-w-none md:max-w-2xl max-w-xl lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-5 ">
-                <div class="bg-zinc-800 rounded-md">
-                    <div class="p-3 h-full flex flex-col">
-                        <h1 class="text-white font-semibold text-sm break-words">Bahasa Inggris</h1>
-                        <p class="text-zinc-100 text-xs break-words my-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta quasi nemo ab voluptate asperiores numquam quidem inventore deserunt optio minus.</p>
-                        <div class="text-end mt-auto">
-                            <button class="bg-primary text-white p-1 rounded-sm text-xs">
-                                <svg width="15" height="15" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.5 18V6" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                    <path d="M6.5 12L18.5 12" stroke="white" stroke-width="2" stroke-linecap="round"/>
-                                </svg>
-                            </button>
+                
+                @foreach ($projects as $data)
+                    <div class="bg-zinc-800 rounded-md">
+                        <div class="p-3 h-full flex flex-col">
+                            <h1 class="text-white font-semibold text-sm break-words">{{$data->title}}</h1>
+                            <p class="text-zinc-100 text-xs break-words my-2">{{$data->description}}</p>
+                            <div class="text-end mt-auto">
+                                <a href="/project/list/{{$data->id}}" class="inline-block bg-primary text-white p-1 rounded-sm text-xs">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="15" height="15" viewBox="0 0 24 24"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A.998.998 0 0 0 5 3v18a1 1 0 0 0 .536.886zM7 4.909 17.243 12 7 19.091V4.909z"></path></svg>
+                                </a>
+                                <a href="/project/list/{{$data->id}}" class="inline-block bg-primary text-white p-1 rounded-sm text-xs ms-1">
+                                    <svg width="15" height="15" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.5 18V6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M6.5 12L18.5 12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="bg-zinc-800 rounded-md">
-                    <div class="p-3">
-                        <h1 class="text-white">keren</h1>
-                    </div>
-                </div>
-                <div class="bg-zinc-800 rounded-md">
-                    <div class="p-3">
-                        <h1 class="text-white">keren</h1>
-                    </div>
-                </div>
+                @endforeach
+              
             </div>
 
         </div>
