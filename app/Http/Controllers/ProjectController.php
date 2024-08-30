@@ -24,15 +24,15 @@ class ProjectController extends Controller
             'description.required' => 'Deskripsi tidak boleh kosong!',
         ]);
 
-        $user = new Content();
+        $project = new Content();
 
-        $user->user_id = Auth::user()->id;
-        $user->title = $request->title;
-        $user->description = $request->description;
+        $project->user_id = Auth::user()->id;
+        $project->title = $request->title;
+        $project->description = $request->description;
 
-        $user->save();
+        $project->save();
 
-        return redirect('/project/list/'.$user->id);
+        return redirect('/project/list/'.$project->id);
     }
 
     public function detail($id) {
@@ -84,6 +84,45 @@ class ProjectController extends Controller
         $detail->delete();
 
         return redirect('/project/list/'.$idContent);
+
+    }
+
+    public function handleEditProject($id) {
+        $project = Content::findOrFail($id);
+
+        if($project->user_id != Auth::user()->id){
+            abort(404);
+        }
+
+
+
+        return view('main.project.edit', compact('project'));
+    }
+
+    public function handleUpdateProject(Request $request, $id) {
+        $project = Content::findOrFail($id);
+
+        if($project->user_id != Auth::user()->id){
+            abort(404);
+        }
+
+        $request->validate([
+            'title' => 'required|max:100',
+            'description' => 'required'
+        ],[
+            'title.required' => 'Judul tidak boleh kosong!',
+            'title.max' => 'Judul terlalu panjang!',
+
+            'description.required' => 'Deskripsi tidak boleh kosong!',
+        ]);
+
+
+        $project->title = $request->title;
+        $project->description = $request->description;
+        $project->update();
+
+        return redirect('/project/list/'.$project->id);
+
 
     }
 }

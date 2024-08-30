@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    function login() {
-        return view('auth.login');
-    }
+
 
     function handleLogin(Request $request) {
         $credentials = $request->validate([

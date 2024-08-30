@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index']);
 
 
-Route::get('/login', [AuthController::class, 'login']);
 Route::post('/', [AuthController::class, 'handleLogin']);
 
 Route::get('/logout', [AuthController::class, 'logout']);
@@ -22,6 +21,8 @@ Route::get('/dashboard', [IndexController::class, 'dashboard']);
 Route::get('/project/new', [ProjectController::class, 'index']);
 Route::post('/project/new', [ProjectController::class, 'store']);
 Route::get('/project/list/{id}', [ProjectController::class, 'detail']);
+Route::get('/project/{id}/edit', [ProjectController::class, 'handleEditProject']);
+Route::put('/project/{id}/edit', [ProjectController::class, 'handleUpdateProject']);
 
 Route::post('/project/list/{id}', [ProjectController::class, 'handleAddList']);
 Route::delete('/project/list/{id}', [ProjectController::class, 'handleDeleteList']);
