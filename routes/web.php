@@ -27,6 +27,9 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/project/{id}/edit', [ProjectController::class, 'handleUpdateProject']);
     Route::delete('/project/{id}/edit', [ProjectController::class, 'handleDeleteProject']);
 
+    // play 
+    Route::get('/project/{id}/game', [ProjectController::class, 'handlePlayGame']);
+
     Route::post('/project/list/{id}', [ProjectController::class, 'handleAddList']);
     Route::delete('/project/list/{id}', [ProjectController::class, 'handleDeleteList']);
 

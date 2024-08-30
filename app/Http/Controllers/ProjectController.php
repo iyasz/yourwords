@@ -141,4 +141,18 @@ class ProjectController extends Controller
         return redirect('/dashboard');
 
     }
+
+
+    public function handlePlayGame($id) {
+        $project = Content::findOrFail($id);
+
+        if($project->user_id != Auth::user()->id){
+            abort(404);
+        }
+
+        $datas = $project->DetailContent->shuffle()->take(1);
+
+
+        return view('main.project.guess', compact('project', 'datas'));
+    }
 }

@@ -26,7 +26,7 @@
                             <h1 class="text-white font-semibold text-sm break-words">{{$data->title}}</h1>
                             <p class="text-zinc-100 text-xs break-words my-2">{{$data->description}}</p>
                             <div class="text-end mt-auto">
-                                <a href="/project/list/{{$data->id}}" class="inline-block bg-primary text-white p-1 rounded-sm text-xs">
+                                <a href="/project/{{$data->id}}/game" class="inline-block bg-primary text-white p-1 rounded-sm text-xs">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="15" height="15" viewBox="0 0 24 24"><path d="M5.536 21.886a1.004 1.004 0 0 0 1.033-.064l13-9a1 1 0 0 0 0-1.644l-13-9A.998.998 0 0 0 5 3v18a1 1 0 0 0 .536.886zM7 4.909 17.243 12 7 19.091V4.909z"></path></svg>
                                 </a>
                                 <a href="/project/list/{{$data->id}}" class="inline-block bg-primary text-white p-1 rounded-sm text-xs ms-1">
