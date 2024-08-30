@@ -18,8 +18,8 @@
     <div class="projects-wrapper mt-20 mx-4">
         <h1 class="text-white font-bold lg:text-2xl md:text-[30px] text-[20px] tracking-wide">Recent Projects</h1>
         <div class="mt-6">
+            @if ($projects->count() > 0)
             <div class="grid lg:max-w-none md:max-w-2xl max-w-xl lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-5 ">
-                
                 @foreach ($projects as $data)
                     <div class="bg-zinc-800 rounded-md">
                         <div class="p-3 h-full flex flex-col">
@@ -39,8 +39,12 @@
                         </div>
                     </div>
                 @endforeach
-              
             </div>
+            @else 
+            <div class="text-center mt-10">
+                <h1 class="text-white font-bold lg:text-2xl md:text-[30px] text-[20px] tracking-wide">Belom ada project nihh ...</h1>
+            </div>
+            @endif
 
         </div>
     </div>
