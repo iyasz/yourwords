@@ -125,4 +125,20 @@ class ProjectController extends Controller
 
 
     }
+
+    public function handleDeleteProject($id) {
+        $project = Content::findOrFail($id);
+
+        if($project->user_id != Auth::user()->id){
+            abort(404);
+        }
+
+
+        $project->DetailContent()->delete();
+
+        $project->delete();
+
+        return redirect('/dashboard');
+
+    }
 }

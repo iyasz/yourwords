@@ -9,12 +9,28 @@
                     <path d="M17.7312 11.2379C18.1454 11.237 18.4819 11.572 18.4828 11.9862C18.4837 12.4004 18.1487 12.737 17.7345 12.7379L17.7312 11.2379ZM6.23784 12.5436C5.9443 12.2514 5.94325 11.7765 6.2355 11.483L10.9979 6.69945C11.2902 6.40591 11.765 6.40486 12.0586 6.69711C12.3521 6.98936 12.3532 7.46423 12.0609 7.75777L7.82765 12.0098L12.0797 16.243C12.3732 16.5353 12.3742 17.0101 12.082 17.3037C11.7898 17.5972 11.3149 17.5983 11.0213 17.306L6.23784 12.5436ZM17.7345 12.7379L6.76865 12.7621L6.76534 11.2621L17.7312 11.2379L17.7345 12.7379Z" fill="white"/>
                 </svg>
             </a>
-            <a href="/project/{{$project->id}}/edit" class="inline-block">
-                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="flex items-center gap-5">
+                <a href="/project/{{$project->id}}/edit" class="inline-block">
+                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M21.5 11.5V17C21.5 18.8856 21.5 19.8284 20.9142 20.4142C20.3284 21 19.3856 21 17.5 21H7.5C5.61438 21 4.67157 21 4.08579 20.4142C3.5 19.8284 3.5 18.8856 3.5 17V9C3.5 7.11438 3.5 6.17157 4.08579 5.58579C4.67157 5 5.61438 5 7.5 5H11" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M16.356 12.963L20.4398 6.85791C21.2074 5.71027 20.8994 4.15762 19.7517 3.38996C18.6041 2.62231 17.0515 2.93034 16.2838 4.07798L12.2001 10.1831C11.0592 11.8886 10.4798 13.908 10.5428 15.959L10.5599 16.5153C10.5688 16.8041 10.8592 16.9984 11.1296 16.8964L11.6503 16.6998C13.57 15.975 15.2152 14.6686 16.356 12.963Z" stroke="white" stroke-width="2"/>
-                </svg>
-            </a>
+                    </svg>
+                </a>
+                <form action="/project/{{$project->id}}/edit" method="post" class="flex">
+                    @csrf
+                    @method('delete')
+                    <button class="inline-block" onclick="return confirm('Apakah anda ingin menghapus ini ?')" >
+                        <svg width="25" height="25" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.01444 12.4585C3.77445 10.3786 3.65445 9.33861 4.25097 8.6693C4.84749 8 5.89435 8 7.98808 8H17.0119C19.1056 8 20.1525 8 20.749 8.6693C21.3455 9.33861 21.2255 10.3786 20.9856 12.4585L20.4086 17.4585C20.2142 19.1436 20.117 19.9861 19.5482 20.4931C18.9794 21 18.1313 21 16.435 21H8.565C6.86873 21 6.02059 21 5.4518 20.4931C4.88302 19.9861 4.7858 19.1436 4.59136 17.4585L4.01444 12.4585Z" stroke="white" stroke-width="2"/>
+                            <path d="M6.5 9V7C6.5 5.11438 6.5 4.17157 7.08579 3.58579C7.67157 3 8.61438 3 10.5 3H14.5C16.3856 3 17.3284 3 17.9142 3.58579C18.5 4.17157 18.5 5.11438 18.5 7V9" stroke="white" stroke-width="2"/>
+                            <path d="M9.5 17V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M21.5 8H3.5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15.5 17V12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </form>
+                
+            </div>
         </div>
         <div class="mb-6">
             <h1 class="text-white font-bold lg:text-2xl md:text-[30px] text-[20px] tracking-wide">Title</h1>

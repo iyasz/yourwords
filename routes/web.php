@@ -23,6 +23,7 @@ Route::post('/project/new', [ProjectController::class, 'store']);
 Route::get('/project/list/{id}', [ProjectController::class, 'detail']);
 Route::get('/project/{id}/edit', [ProjectController::class, 'handleEditProject']);
 Route::put('/project/{id}/edit', [ProjectController::class, 'handleUpdateProject']);
+Route::delete('/project/{id}/edit', [ProjectController::class, 'handleDeleteProject']);
 
 Route::post('/project/list/{id}', [ProjectController::class, 'handleAddList']);
 Route::delete('/project/list/{id}', [ProjectController::class, 'handleDeleteList']);
